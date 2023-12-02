@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 mod day01;
 mod day02;
+mod template;
 
 use day01::Day01;
 use day02::Day02;

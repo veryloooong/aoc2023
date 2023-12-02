@@ -72,7 +72,7 @@ mod tests {
   use super::*;
 
   #[test]
-  fn part1() -> io::Result<()> {
+  fn test1() -> io::Result<()> {
     let mut input_file = File::open("./input/01/test1.txt")?;
     let mut input: String = String::new();
 
@@ -84,7 +84,7 @@ mod tests {
   }
 
   #[test]
-  fn part2() -> io::Result<()> {
+  fn test2() -> io::Result<()> {
     let mut input_file = File::open("./input/01/test2.txt")?;
     let mut input: String = String::new();
 
