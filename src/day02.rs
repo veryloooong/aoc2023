@@ -5,6 +5,9 @@ static GREEN: u32 = 13;
 static BLUE: u32 = 14;
 
 impl Day02 {
+  /// The `process_game` function are just offloading the main logic to process each line. The solutions may or may not be optimal, but this is a one-run operation on both part 1 and part 2.
+  ///
+  /// For part 1, we just need to check if at any set the cubes are above the max amount (as per the `static`s above).
   fn process_game_part_1(game: &str) -> bool {
     let sets: Vec<&str> = game.split(&[':', ';'][..]).map(|s| &s[1..]).collect();
     let mut red = 0;
@@ -43,6 +46,7 @@ impl Day02 {
     sum
   }
 
+  /// For part 2, it's just a one-run max element finder.
   fn process_game_part_2(game: &str) -> usize {
     let sets: Vec<&str> = game.split(&[':', ';'][..]).map(|s| &s[1..]).collect();
     let mut red = 0;
