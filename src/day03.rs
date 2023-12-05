@@ -10,6 +10,9 @@ struct Number {
 
 impl Day03 {
   /// Loop through every character and then store indices of those part numbers. Then iterate through said indices and add numbers.
+  ///
+  /// Also, it appears Rust (or clippy) dislikes array indexing and wants me to use `enumerate().take().skip()`. That looks terrible, so no.
+  #[allow(clippy::needless_range_loop)]
   pub fn part_1(input: &str) -> usize {
     let matrix: Vec<Vec<char>> = input
       .lines()
@@ -57,6 +60,7 @@ impl Day03 {
   }
 
   /// The same adding, but the indices checking has been moved inside the `'add` loop. (Thank Rust for labelled loops...) Once the indices set count reaches 2 just `break 'add;` and continue.
+  #[allow(clippy::needless_range_loop)]
   pub fn part_2(input: &str) -> usize {
     let matrix: Vec<Vec<char>> = input
       .lines()
