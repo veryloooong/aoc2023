@@ -1,10 +1,12 @@
 #![allow(dead_code)]
 mod day01;
 mod day02;
+mod day03;
 mod template;
 
 use day01::Day01;
 use day02::Day02;
+use day03::Day03;
 
 use std::{
   fs::File,
@@ -35,9 +37,22 @@ fn day_02() -> io::Result<()> {
   Ok(())
 }
 
+fn day_03() -> io::Result<()> {
+  let mut input_file = File::open("./input/03/input.txt")?;
+  let mut input = String::new();
+
+  input_file.read_to_string(&mut input)?;
+
+  println!("Day 03 part 1: {}", Day03::part_1(&input));
+  println!("Day 03 part 2: {}", Day03::part_2(&input));
+
+  Ok(())
+}
+
 fn main() -> io::Result<()> {
-  day_01()?;
-  day_02()?;
+  // day_01()?;
+  // day_02()?;
+  day_03()?;
 
   Ok(())
 }
