@@ -50,6 +50,7 @@ impl Day06 {
       .parse()
       .unwrap();
 
+    // This calculation may fail because of `usize`s. Preferably parse to `isize`, but I know it will be positive anyway.
     let discriminant = (time * time - 4 * distance) as f64;
 
     let x_1 = (time as f64 - discriminant.sqrt()) / 2.0;
