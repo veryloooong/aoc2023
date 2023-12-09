@@ -94,7 +94,7 @@ impl Day08 {
           steps.rotate_left(1);
         }
 
-        if first_stop == "" {
+        if first_stop.is_empty() {
           first_stop = current;
           cycle.push(count);
           count = 0;
@@ -139,7 +139,7 @@ mod tests {
 
     input_file.read_to_string(&mut input)?;
 
-    let result = 0;
+    let result = 6;
 
     assert_eq!(Day08::part_2(&input), result);
 

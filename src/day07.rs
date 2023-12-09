@@ -115,8 +115,7 @@ impl Day07 {
 
     hands.sort_unstable_by(|a, b| match hand_type(a[0]).cmp(&hand_type(b[0])) {
       Ordering::Equal => {
-        let mut comp = a[0].chars().zip(b[0].chars());
-        while let Some((x, y)) = comp.next() {
+        for (x, y) in a[0].chars().zip(b[0].chars()) {
           match card_value(x).cmp(&card_value(y)) {
             Ordering::Equal => continue,
             other => return other,
@@ -145,8 +144,7 @@ impl Day07 {
     hands.sort_unstable_by(
       |a, b| match hand_type_joker(a[0]).cmp(&hand_type_joker(b[0])) {
         Ordering::Equal => {
-          let mut comp = a[0].chars().zip(b[0].chars());
-          while let Some((x, y)) = comp.next() {
+          for (x, y) in a[0].chars().zip(b[0].chars()) {
             match card_value_joker(x).cmp(&card_value_joker(y)) {
               Ordering::Equal => continue,
               other => return other,
