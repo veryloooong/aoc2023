@@ -48,20 +48,20 @@ impl Day10 {
     let mut current_pos = (start_row, start_col);
     let mut len = 0;
 
-    for dir in 0..4 {
-      if let Some(new_pos) = calc_next(current_pos, moves[dir], bounds) {
+    for (d, &dir) in moves.iter().enumerate() {
+      if let Some(new_pos) = calc_next(current_pos, dir, bounds) {
         let (x, y) = new_pos;
         let ch = grid[x][y];
-        if (dir == 0 && !"7|F".contains(ch))
-          || (dir == 1 && !"J-7".contains(ch))
-          || (dir == 2 && !"L|J".contains(ch))
-          || (dir == 3 && !"F-L".contains(ch))
+        if (d == 0 && !"7|F".contains(ch))
+          || (d == 1 && !"J-7".contains(ch))
+          || (d == 2 && !"L|J".contains(ch))
+          || (d == 3 && !"F-L".contains(ch))
         {
           continue;
         }
         current_pos = new_pos;
         len += 1;
-        current_direction = dir;
+        current_direction = d;
         break;
       };
     }
