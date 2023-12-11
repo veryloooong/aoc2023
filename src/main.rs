@@ -8,6 +8,8 @@ mod day06;
 mod day07;
 mod day08;
 mod day09;
+mod day10;
+mod day11;
 mod template;
 
 use day01::Day01;
@@ -19,6 +21,8 @@ use day06::Day06;
 use day07::Day07;
 use day08::Day08;
 use day09::Day09;
+use day10::Day10;
+use day11::Day11;
 
 use std::{
   fs::File,
@@ -133,6 +137,30 @@ fn day_09() -> io::Result<()> {
   Ok(())
 }
 
+fn day_10() -> io::Result<()> {
+  let mut input_file = File::open("./input/10/input.txt")?;
+  let mut input = String::new();
+
+  input_file.read_to_string(&mut input)?;
+
+  println!("Day 10 part 1: {}", Day10::part_1(&input));
+  println!("Day 10 part 2: {}", Day10::part_2(&input));
+
+  Ok(())
+}
+
+fn day_11() -> io::Result<()> {
+  let mut input_file = File::open("./input/11/input.txt")?;
+  let mut input = String::new();
+
+  input_file.read_to_string(&mut input)?;
+
+  println!("Day 11 part 1: {}", Day11::solver(&input, 2));
+  println!("Day 11 part 2: {}", Day11::solver(&input, 1_000_000));
+
+  Ok(())
+}
+
 /// The run to get each day's answer. I could use a macro to generate a script because DRY, but I can't be bothered...
 fn main() -> io::Result<()> {
   // day_01()?;
@@ -143,7 +171,9 @@ fn main() -> io::Result<()> {
   // day_06()?;
   // day_07()?;
   // day_08()?;
-  day_09()?;
+  // day_09()?;
+  // day_10()?;
+  day_11()?;
 
   Ok(())
 }
